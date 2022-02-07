@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hangman</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" id="start">Iniciar juego</a>
+        <a href="#" id="addWord">Agregar palabras</a>
+    </nav>
+    <div class="container" id="gameScreen">
+        <h1 class="titulo">Hangman</h1>
+        <div class="container-game">
+            <canvas class="game"></canvas>
+            <div class="letters">
+                <p id="pulse"></p>
+            </div>
+        </div>
+    
+        <div class="secret">
+            <p class="secretValue" id="secretValue">AHORCADO</p>
+        </div>
+    </div>
+    <div class="container hidden" id="gameOpts">
+        <fieldset class="forml">
+            <legend>Agregar nueva palabra</legend>
+            <input type="text" class="inputUser"  id="word">
+            <small class="error hidden" id="errors">La palabra tiene que ser en mayúsculas y solo letras</small>
+            <div class="container">
+            <button class="btn" id="btnAddWord">Agregar</button>
+            <button class="btn" id="return">Volver al juego</button>
+            </div>
+        </fieldset>
+    </div>
+    <div class="container about">
+        <p>Desarrollado por: Pedro Robles</p>
+        <div>
+            <a href="https://github.com/Pedroserker" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/pedro-antonio-s-r/" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+<script src="js/main.js"></script>
+</body>
+</html>

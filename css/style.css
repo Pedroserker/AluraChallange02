@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Raleway:wght@300;400;700;900&display=swap');
+:root{
+    --funtePrincipal: 'Raleway', sans-serif;
+    --colorPrincipal: rgb(34, 57, 84);
+    --colorSecundario: rgb(255, 155, 102);
+    --blanco: rgb(255, 255, 255);
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 62.5%;
+}
+
+.container{
+    width: 90%;
+    max-width: 120rem;
+    padding: 1rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+    
+}
+.container-game{
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    position: relative;
+    
+}
+.letters{
+   position: absolute;
+   left: 1rem;
+   font-family: var(--funtePrincipal);
+   font-size: 1.2rem;
+   font-weight: 700;
+   letter-spacing: 1rem;
+}
+.game{
+    border: 1px solid black;
+    width: 600px;
+    height: 400px;
+}
+.titulo{
+    font-family: var(--funtePrincipal);
+    font-size: 2rem;
+}
+
+.navbar{
+    width: 90%;
+    max-width: 120rem;
+    background-color: var(--colorSecundario);
+    margin: 0 auto;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar a{
+    text-decoration: none;
+    font-family: var(--funtePrincipal);
+    font-weight: 600;
+    color: var(--blanco);
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-bottom: 1px solid transparent;
+    
+}
+.navbar a:hover::after{
+    content: "";
+    display: block;
+   outline: 2px solid var(--blanco);
+   animation: animandoWidth 0.3s linear;
+   
+}
+@keyframes animandoWidth {
+    from{ width: 1%;}
+    to{width: 100%;}
+}
+
+.secret{
+padding: 1rem;
+}
+
+.secretValue{
+    font-family: var(--funtePrincipal);
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: 1rem;
+}
+.inputUser{
+    width: 90%;
+    max-width: 120rem;
+    height: 2rem;
+    font-size: 2rem;
+    font-family: var(--funtePrincipal);
+    padding: 1rem;
+ 
+}
+.forml{
+    width: 90%;
+    max-width: 40rem;
+    padding:2rem;
+}
+legend{
+    font-family: var(--funtePrincipal);
+    font-size: 2rem;
+}
+.btn{
+    border: none;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 3rem;
+    background-color: var(--colorPrincipal);
+    color: var(--blanco);
+    font-family: var(--funtePrincipal);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.btn:hover{
+   transform: scale(1.1);
+}
+.btn:active{
+    transform: scale(0.9);
+}
+.error{
+    display: block;
+    font-family: var(--funtePrincipal);
+    color: var(--colorSecundario);
+    font-size: 1rem;
+}
+.about{
+    padding: 2rem;
+    font-size: 1rem;
+    font-family: var(--funtePrincipal);
+    font-weight: 600;
+}
+.about p{
+
+}
+.hidden{
+    display: none;
+}
