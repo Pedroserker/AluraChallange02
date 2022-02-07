@@ -9,16 +9,16 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="#" id="start">Iniciar juego</a>
+        <a href="#" id="start">Iniciar nuevo juego</a>
         <a href="#" id="addWord">Agregar palabras</a>
     </nav>
     <div class="container" id="gameScreen">
-        <h1 class="titulo">Hangman</h1>
+        <h1 class="titulo" id="title">Hangman</h1>
         <div class="container-game">
             <canvas class="game"></canvas>
-            <div class="letters">
-                <p id="pulse"></p>
-            </div>
+        </div>
+        <div class="letters">
+            <p id="pulse"></p>
         </div>
     
         <div class="secret">
@@ -29,7 +29,7 @@
         <fieldset class="forml">
             <legend>Agregar nueva palabra</legend>
             <input type="text" class="inputUser"  id="word">
-            <small class="error hidden" id="errors">La palabra tiene que ser en mayúsculas y solo letras</small>
+            <small class="error hidden" id="errors">La palabra tiene que ser solo letras mayúsculas y no puede ser repetida</small>
             <div class="container">
             <button class="btn" id="btnAddWord">Agregar</button>
             <button class="btn" id="return">Volver al juego</button>

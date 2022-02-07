@@ -3,8 +3,8 @@ let cont = 0;
 let start = false;
 let palabra = "";
 let palabraOculta = "";
-let palabras = ["AVION","BARCO","GATO","PIANO"];
-
+let palabras = ["AVION","BARCO","GATO","PIANO","COMPUTADORA"];
+let repetido = [];
 let input = document.querySelector("#word");
 let error = document.querySelector("#errors");
 let juego = document.querySelector("#gameScreen");
@@ -15,9 +15,9 @@ let btnAgregarPalabraMenu = document.querySelector("#addWord");
 let btnVolverJuego = document.querySelector("#return");
 let btnAgregarPalabra = document.querySelector("#btnAddWord");
 let txtsecretValue = document.querySelector("#secretValue");
-//X = 600 Y = 400
+let leyenda = document.querySelector("#title");
 canvas.fillStyle = "black";
-
+canvas.lineWidth = 2;
 let palabraRandom = ()=>{
     
     return palabras[Math.ceil(Math.random()*palabras.length-1)];
@@ -65,7 +65,8 @@ let dibujarPartes = ()=>{
         break;
         default:
             start = false;
-            alert("¡FIN DEL JUEGO! \n La palabra era: "+palabra);
+            leyenda.textContent = "¡FIN DEL JUEGO! \n La palabra era: "+palabra; 
+            
     } 
     
     
@@ -80,19 +81,25 @@ let dibujarPartes = ()=>{
 let nuevoJuego = ()=>{
     canvas.clearRect(0,0,600,400);
     dibujarPrimerasPartes();
+    leyenda.textContent = "¿Podrás adivinar?";
     letraTecleada.textContent = "";
     cont = 0;
     palabra = "";
     palabraOculta ="";
+    repetido = [];
 };
 let leerTeclado = (bool)=>{
     if(bool){
  document.onkeypress = function(e){
      if(e.keyCode >= 65 && e.keyCode<=90 && start){
-         letraTecleada.textContent += e.key;
+         if(!repetido.includes(e.key)){
+            letraTecleada.textContent += e.key;
          validaLetra(e.key);
+         repetido.push(e.key);
+         }
+         
      }else{
-         alert("Solo letras mayúsculas / Inicia el juego para empezar / o ya acabó")
+         alert("Solo letras mayúsculas | Inicia el juego para empezar | o ya acabó")
      }
  }
 
@@ -109,7 +116,7 @@ let validaLetra = (letraPulsada)=>{
         dibujarPartes(); 
     }
     if(palabra == palabraOculta){
-        alert("¡Felicidades, ganaste!")
+        leyenda.textContent = "¡Felicidades, ganaste!"; 
         leerTeclado(false);
     }
 };
@@ -154,8 +161,9 @@ btnAgregarPalabra.addEventListener("click",()=>{
     
 
    
-    if(input.value.trim().length>0 && input.value.match(/[A-Z]/g)){
+    if(!palabras.includes(input.value) && input.value.trim().length>0 && input.value.match(/.[A-Z]./g)){
         error.classList.add("hidden");
+        input.value = input.value.toUpperCase();
         palabras.push(input.value);
         alert("Palabra agregada: "+input.value);
         input.value = "";

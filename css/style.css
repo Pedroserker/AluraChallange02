@@ -33,15 +33,14 @@ body{
     
 }
 .letters{
-   position: absolute;
-   left: 1rem;
+   
    font-family: var(--funtePrincipal);
    font-size: 1.2rem;
    font-weight: 700;
    letter-spacing: 1rem;
 }
 .game{
-    border: 1px solid black;
+
     width: 600px;
     height: 400px;
 }
@@ -73,7 +72,7 @@ body{
 .navbar a:hover::after{
     content: "";
     display: block;
-   outline: 2px solid var(--blanco);
+   outline: 1px solid var(--blanco);
    animation: animandoWidth 0.3s linear;
    
 }
